@@ -9,17 +9,15 @@ export class DirectivesComponent {
     is_logged = false;
     ma_class = 'blue';
     mes_classes = ['truc', 'bidule', 'machin']
-
     ngClassObj = '[ngClass]="{maclasse: condition}"';
-
     color = 'rebeccapurple';
     size = 12;
-
     style = {
       color: this.color,
       fontSize: this.size + 'px',
       'text-decoration': 'underline 1px orange'
     }
+    fruits = ['Pommes', 'Clémentines', 'Oranges'];
 
     login() {
       this.is_logged = !this.is_logged;

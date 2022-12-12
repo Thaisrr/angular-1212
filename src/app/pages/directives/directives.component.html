@@ -85,3 +85,113 @@
   <p [ngStyle]="style">J'ai du style</p>
 
 </section>
+
+<section>
+  <h2>Affichage Conditionnel</h2>
+
+  <p>NgIf permet d'afficher des éléments HTML, des blocks HTML, des composants de manière conditionnelle.</p>
+
+  <div *ngIf="is_logged">
+    <p><b>Bonjour Jean Michel</b></p>
+    <p>Vous êtes bien connecté !</p>
+    <button (click)="login()">Déconnexion</button>
+  </div>
+
+  <div *ngIf="!is_logged">
+    <p><b>Oh No !</b></p>
+    <p>Vous n'êtes pas connecté⋅e !!</p>
+    <p>Il faut vite y remédier !</p>
+    <button (click)="login()">Se connecter</button>
+  </div>
+
+  <h4>If / Else</h4>
+  <p>ng template est une balise Angular qui permet d'encapsuler un block de code
+    sans créer de balise supplémentaire.</p>
+  <p>Elle sert pour les éléments secondaire, qui affiché de manière conditionnelle.</p>
+
+  <div *ngIf="is_logged; else anonymousBlock">
+    <p><b>Bonjour Jean Michel</b></p>
+    <p>Vous êtes bien connecté !</p>
+    <button (click)="login()">Déconnexion</button>
+  </div>
+
+  <ng-template #anonymousBlock>
+    <div>
+      <p><b>Oh No !</b></p>
+      <p>Vous n'êtes pas connecté⋅e !!</p>
+      <p>Il faut vite y remédier !</p>
+      <button (click)="login()">Se connecter</button>
+    </div>
+  </ng-template>
+
+  <h4>If then, else</h4>
+  <p>Cette syntaxe est moins courante, elle sert quand on ne souhaite pas créer de balise HTML inutile.</p>
+
+  <ng-container *ngIf="is_logged; then logged; else notLogged"></ng-container>
+  <ng-template #logged>
+    <p><b>Bonjour Jean Michel</b></p>
+    <p>Vous êtes bien connecté !</p>
+    <button (click)="login()">Déconnexion</button>
+  </ng-template>
+
+  <ng-template #notLogged>
+    <p><b>Oh No !</b></p>
+    <p>Vous n'êtes pas connecté⋅e !!</p>
+    <p>Il faut vite y remédier !</p>
+    <button (click)="login()">Se connecter</button>
+  </ng-template>
+
+</section>
+
+<section>
+  <h2>NgFor</h2>
+
+  <p>Le ngFor permet de répéter une balise, ou un composant pour chaque élément d'une liste.</p>
+  <ul>
+    <li *ngFor="let f of fruits">{{f}}</li>
+  </ul>
+
+  <h3>Variables locales :</h3>
+  <p>Une variable locale est valable de sa déclaration, jusqu'à la fermeture de la balise où elle est déclarée.</p>
+
+  <p>Il faut mettre le ngFor sur l'élément qu'on souhaite répéter.</p>
+
+  <div *ngFor="let f of fruits;
+  let i = index;
+  let first = first;
+  let last = last;
+  let odd = odd;
+  let even = even;
+  ">
+    <h4 [class.green]="odd" [class.blue]="even">{{f}}</h4>
+    <p>Index : {{i}}</p>
+    <p *ngIf="first">Premier élément de la liste.</p>
+    <p *ngIf="last">Dernier élément de la liste.</p>
+    <p *ngIf="odd">Index pair</p>
+    <p *ngIf="even">Index impair</p>
+  </div>
+
+
+  <div *ngFor="let f of fruits;
+  index as i;
+  first as first;
+  let last = last;
+  let odd = odd;
+  let even = even;
+  ">
+    <h4 [class.green]="odd" [class.blue]="even">{{f}}</h4>
+    <p>Index : {{i}}</p>
+    <p *ngIf="first">Premier élément de la liste.</p>
+    <p *ngIf="last">Dernier élément de la liste.</p>
+    <p *ngIf="odd">Index pair</p>
+    <p *ngIf="even">Index impair</p>
+  </div>
+
+
+  <h3>NgIf + NgFor</h3>
+
+  <ng-container *ngFor="let f of fruits">
+    <p *ngIf="f.length > 6">{{f}}</p>
+  </ng-container>
+
+</section>
