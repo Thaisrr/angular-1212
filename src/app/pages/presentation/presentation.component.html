@@ -1,0 +1,77 @@
+<h1>Présentation de Angular</h1>
+
+<section>
+  <h2>Création d'un projet</h2>
+
+  <p>Pour créer un projet en Angular, on a besoin de la CLI de Angular.</p>
+  <p>Il faut l'installer sur le pc si ce n'est pas déjà fait.</p>
+  <p><code>npm i -g @angular/cli</code></p>
+
+  <p>Ensuite, pour créer un projet, on utilise la commande Angular: </p>
+  <p><code>ng new mon-projet</code></p>
+
+  <p>Angular permet de faire des <b>Single Page Applications</b> ( SPA ), des applications qui ne
+  contiennent qu'une page html affichée ( index.html ), et qui injecte le contenu à afficher grâce à Javascript.</p>
+
+  <p>Un projet Angular est divisé en composants. Un composant, c'est un ensemble de code réutilisable, qui combine: </p>
+  <ul>
+    <li>La logique ( fichier .ts )</li>
+    <li>La vue ou template ( fichier .html )</li>
+    <li>Le style ( .css, ou scss, ... )</li>
+  </ul>
+
+  <p>On se sert des composants comme de blocks qu'on vient mettre les uns en dessous des autres, ou les uns dans les autres.</p>
+  <p>On peut aussi voir les composants comme des balises html personnalisées.</p>
+
+  <p><b>Le composant App est toujours affiché.</b> Il est injecté dans le fichier index.html, et gère le reste de l'affichage.</p>
+</section>
+
+<section>
+  <h2>La syntaxe de template</h2>
+
+  <article>
+    <h3>Interpolation</h3>
+    <p>C'est la possibilité d'exécuter du Javascript, d'afficher des expressions javascript dans le template.</p>
+    <p>Pour ça, on utilise les <i>balises moustaches</i> ( doubles accolades )</p>
+    <ul>
+      <li>1 + 1 = {{ 1 + 1 }}</li>
+      <li>string {{ 'je suis une string en dur' }}</li>
+      <li>Variable du .ts : {{ message }}</li>
+      <li>Méthodes: {{message.toUpperCase()}}</li>
+      <li>Condition : {{ (is_logged)? 'Vous êtes connecté⋅e' : 'Hors ligne' }}</li>
+    </ul>
+
+    <p>Dans les accolades, on peut mettre toute expression typescript qui retourne une valeur.</p>
+
+    <p>On peut s'en servir pour interpoler des données dans les attributs HTML.</p>
+    <figure>
+      <img src="{{image_url}}" alt="Une super image"/>
+    </figure>
+
+    <p>On peut le faire, mais ce n'est pas la meilleure solution.</p>
+  </article>
+
+
+  <article>
+    <h3>Property Binding</h3>
+
+    <p>Data Binding, Property Binding, Attribute Binding => 3 noms pour un même concept : </p>
+    <p>Passer une valeur JS ( TS ) à une valeur d'un attribut HTML. </p>
+    <p>Demander à un attribut HTML d'interpréter une valeur JS.</p>
+
+    <p>On peut le faire sur (quasi) tous les attributs HTML. </p>
+    <p [class]="message">On met l'attribut entre [] pour lui demander d'interpréter du JS.</p>
+
+    <figure>
+      <img [src]="image_url" alt="Mon image"/>
+    </figure>
+
+    <figure>
+      <img [src]="image.url" [alt]="image.description">
+      <figcaption>{{ image.title }}</figcaption>
+    </figure>
+
+  </article>
+
+</section>
+

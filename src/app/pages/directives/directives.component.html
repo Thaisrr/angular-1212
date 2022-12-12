@@ -1,0 +1,87 @@
+<h1>Les directives</h1>
+
+<p>Une directive, c'est un attribut HTML propre à Angular. </p>
+<p>Elles récupèrent l'élément HTML ( ou le composant ) sur lequel elles sont appliquée, et retourne un élément fonctionnel.</p>
+<p>
+  <button (click)="login()">
+    {{is_logged? 'Déconnexion' : 'Connexion'}}
+  </button>
+</p>
+<section>
+  <h2>Les Classes</h2>
+
+  <p>NgClass est une directive qui permet de gérer les classes d'un élément de manière plus poussée.</p>
+
+  <h3>Syntaxe [class]</h3>
+
+  <p>Syntaxe classique en data binding :</p>
+  <p>Exemple :
+    <span [class]="is_logged? 'green' : 'red'">
+      {{ is_logged? 'Connecté⋅e' : 'Hors Ligne' }}
+    </span>
+  </p>
+
+  <p>Classe conditionnel : on peut passer une classe en fonction d'une condition avec la syntaxe</p>
+  <p>
+    <code>[class.maclasse]="condition"</code>
+  </p>
+  <p>Exemple :
+    <span [class.green]="is_logged">
+         {{ is_logged? 'Connecté⋅e' : 'Hors Ligne' }}
+    </span>
+  </p>
+
+  <h3>NgClass</h3>
+
+  <p>La Directive ngClass peut prendre plusieurs valeurs : string, tableau, objet</p>
+
+  <h4>String</h4>
+  <p>Fonctionnement similaire à [class] : expressions Javascript, variable, ternaire.</p>
+  <p [ngClass]="ma_class">I'm blue ( da bu de da bu daa )</p>
+
+  <h4>Tableaux</h4>
+
+  <p>On peut passer un tableau de string. Chaque chaîne de caractère représente 1 classe.</p>
+
+  <p [ngClass]="['class1', ma_class]">J'ai plusieurs classes : class1, et blue</p>
+  <p [ngClass]="mes_classes">Ici, les classes viennent du tableau "mes_classes", déclaré dans le .ts </p>
+
+  <h4>Objets</h4>
+
+  <p>Sur la syntaxe objet, on utilise la forme : </p>
+  <p>
+    <code>{{ngClassObj}}</code>
+  </p>
+  <p [ngClass]="{green: is_logged, red: !is_logged}">Vert si connecté</p>
+
+</section>
+
+
+<section>
+  <h2>Les styles</h2>
+
+  <p>NgStyle prend en paramètre un objet.</p>
+  <p>On retrouve les mêmes propriétés qu'en CSS.</p>
+  <p>Attention à la syntaxe : en JS, le kebab-case ne fonctionnent pas.</p>
+  <p>Soit, on écrit les propriétés en camelCase, ( fontSize ),
+    soit il faut les mettre entre guillemets, comme en JSON. </p>
+  <p [ngStyle]="{color: 'violet'}">J'ai du style</p>
+  <p [ngStyle]="{color: color}">J'ai du style</p>
+  <p [ngStyle]="{color}">J'ai du style</p>
+  <p [ngStyle]="{color, fontSize: '1.1em'}">J'ai du style</p>
+  <p [ngStyle]="{color, 'font-size': '1.1em'}">J'ai du style</p>
+
+  <p>Pour passer des unités de mesure : </p>
+
+  <p [ngStyle]="{color, 'font-size.px': 12}">J'ai du style</p>
+  <p [ngStyle]="{color, 'font-size.px': size}">J'ai du style dynamique</p>
+  <p [ngStyle]="{color, fontSize: size + 'px'}">J'ai du style dynamique</p>
+
+  <p>
+    <button (click)="zoom()">+</button>
+    <button (click)="dezoom()">-</button>
+  </p>
+
+  <p [ngStyle]="style">J'ai du style</p>
+
+</section>
