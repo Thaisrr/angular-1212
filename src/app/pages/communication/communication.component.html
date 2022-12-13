@@ -1,0 +1,59 @@
+<h1>Communication entre les composants</h1>
+
+<section>
+  <h2>Projection de contenu</h2>
+
+  <h3>Single Slot Projection</h3>
+  <p>On peut "projeter" du texte, du HTML, des composants à l'intérieur de composants enfants.</p>
+  <p>Dans le composant enfant, on récupère le contenu dans les balises <code>{{content}}</code></p>
+
+  <p>Les attributs ( événements, classes, ect... ) sont également projeté vers la première balise englobante du composant
+  enfant.</p>
+
+  <p>Bouton classique : <button (click)="handleClick()">Click Click</button></p>
+  <p>Cliquez ici : <app-button class="coucou" (click)="handleClick()">Say Hello</app-button></p>
+  <p>Ne cliquez pas ici : <app-button>Boom</app-button></p>
+  <p>Du HTML : <app-button><i>En italique</i></app-button></p>
+
+
+  <h3>Multi Slot Projection</h3>
+
+  <app-dialog>
+    <div content>
+      <h2>Titre du dialogue</h2>
+      <div>
+        <p>Ceci est du texte</p>
+        <p>Avec des infos</p>
+      </div>
+    </div>
+    <div footer>
+      <app-button>Valider</app-button>
+    </div>
+  </app-dialog>
+
+</section>
+
+
+<section>
+  <h2>Input</h2>
+
+  <p>Les inputs, ce sont des valeurs qu'on pourra passer d'un composant parent vers un composant enfant.</p>
+  <p>Dans le composant, on récupère ces valeurs dans le typescript.</p>
+
+  <p>Attention : <app-button level="error">Supprimer</app-button></p>
+  <p>Bravo: <app-button [level]="btn_level">Youhouh</app-button></p>
+</section>
+
+
+<section>
+  <h2>Division des responsabilités</h2>
+
+
+  <div class="grid">
+    <app-product-card [product]="one_product"></app-product-card>
+    <app-product-card *ngFor="let p of products" [product]="p"></app-product-card>
+
+  </div>
+</section>
+
+

@@ -1,0 +1,18 @@
+.dialog {
+  border: solid 1px;
+}
+
+.dialog header, .dialog footer {
+  width: 80%;
+  margin: auto;
+  height: 80px;
+}
+
+header {
+  border-bottom: solid blue 1px;
+}
+
+footer {
+  border-top: solid 1px blue;
+  height: 80px;
+}

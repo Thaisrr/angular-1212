@@ -1,1 +1,149 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Imperial+Script&family=Inter&display=swap');
+
+
+:root {
+  --main : #F97068;
+  --main-glass: #F9706844;
+  --main-lighter: #FBB0B2;
+  --main-darker: #7A3133;
+  --secondary: #ffdf93;
+  --secondary-glass: rgba(255, 223, 147, 0.4);
+  --dark: #152328;
+  --light: white;
+  --shadow: rgba(43, 54, 56, 0.2);
+  --script: 'Imperial Script', cursive;
+  --main-font: "Inter", sans-serif;
+  --title-font: "Comfortaa", sans-serif;
+  --width: 85%;
+}
+
+.dark {
+  --light: #15162b;
+  --dark: white;
+  --shadow: rgb(6, 19, 46);
+}
+
+.dark main, .dark nav {
+  --light: #050515;
+
+}
+
+.dark h1::after {
+  background-color: var(--main);
+}
+
+
+body {margin: 0}
+.body {
+  margin: 0;
+  font-family: var(--main-font);
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+* { box-sizing: border-box}
+
+.centered, figure, main {
+  width: var(--width);
+  margin: auto;
+}
+
+
+
+h1, h2, h3, .subtitle {
+  font-family: var(--title-font);
+}
+
+h2 {
+  margin-bottom: 50px;
+  color: var(--main);
+}
+h3 {margin: 50px 0 35px}
+
+h1 {
+  font-size: 3em;
+  position: relative;
+  width: fit-content;
+  z-index: 2;
+  margin: 70px auto;
+  text-align: center;
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  height: 40%;
+  width: 110%;
+  top: 65%;
+  left: -5%;
+  z-index: -1;
+  background-color: var(--secondary);
+  clip-path: polygon(0 0, 95% 0, 100% 100%, 5% 100%);
+}
+
+
+section {
+  padding: 35px;
+  box-shadow: 0 3px 12px var(--shadow);
+  border-radius: 8px;
+  margin: 50px 0 auto;
+  background-color: var(--light);
+}
+
+img {
+  width: 100%;
+}
+
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr));
+  gap: 30px;
+}
+
+table {
+  margin-top: 60px;
+  border: solid black 2px;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--light);
+  position: relative;
+}
+
+
+thead {
+  background-color: var(--secondary);
+  border-bottom: solid black 2px;
+  border-radius: 8px;
+}
+
+.dark thead {
+  background-color: var(--main);
+}
+
+thead th:last-child {
+  border-top-right-radius: 8px;
+}
+
+thead th:first-child {
+  border-top-left-radius: 8px;
+}
+
+tbody th {
+  color: var(--main);
+}
+
+thead th {
+  font-family: var(--title-font);
+  text-align: left;
+  padding: 10px 15px;
+}
+
+td {
+  padding: 10px 15px;
+  border-bottom: solid grey 1px;
+  font-family: var(--main-font);
+}

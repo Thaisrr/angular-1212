@@ -1,0 +1,21 @@
+button {
+  background-color: var(--secondary);
+  border: solid black 2px;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  border-radius: 5px;
+}
+
+button.error {
+  background-color: darkred;
+  color: white;
+}
+
+button.success {
+  background-color: green;
+  color: white;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
