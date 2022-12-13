@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormArray, FormControl, FormGroup, Validators} from "@angular/forms";
+import {Formation} from "../../utils/models/Formation";
 
 @Component({
   selector: 'app-formulaires',
@@ -101,16 +102,6 @@ export class FormulairesComponent {
     this.modules.push(new FormControl())
   }
 
-
-  saveFormation() {
-    if(this.formation_form.valid) {
-      console.log(this.formation_form.value);
-    } else {
-      console.error('Nope ! C\'est pas bon !')
-    }
-  }
-
-
   toggleCategory(e: Event) {
     const checkbox = e.target as HTMLInputElement;
     if(checkbox.checked)  {
@@ -121,6 +112,16 @@ export class FormulairesComponent {
       const index = this.categories.controls
         .findIndex((control) => control.value === checkbox.value);
       this.categories.removeAt(index);
+    }
+  }
+
+
+  saveFormation() {
+    if(this.formation_form.valid) {
+      const formation: Formation = this.formation_form.value as Formation;
+      console.log(formation);
+    } else {
+      console.error('Nope ! C\'est pas bon !')
     }
   }
 
