@@ -12,7 +12,8 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { TwoWayBindingComponent } from './pages/two-way-binding/two-way-binding.component';
 import { CounterComponent } from './components/counter/counter.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormulairesComponent } from './pages/formulaires/formulaires.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +26,14 @@ import {FormsModule} from "@angular/forms";
     DialogComponent,
     ProductCardComponent,
     TwoWayBindingComponent,
-    CounterComponent
+    CounterComponent,
+    FormulairesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, // pour ngModel
+    ReactiveFormsModule, // Formulaires Réactifs
   ],
   providers: [],
   bootstrap: [AppComponent]

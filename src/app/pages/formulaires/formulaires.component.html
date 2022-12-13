@@ -1,0 +1,122 @@
+<h1>Les Formulaires</h1>
+
+<section>
+  <h2>Présentation</h2>
+
+  <p>Avant de commencer, il faut importer <i>ReactiveFormsModule</i> dans <i>app.module.ts</i>.</p>
+
+  <p>En Angular, il y a deux façons de créer des formulaires : </p>
+  <ul>
+    <li><i>Template Driven Forms</i> : formulaires côté template, qui utilisent ngModel.</li>
+    <li><i>Les Formulaires Réactifs</i>: gérés, côté logique.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Template Driven Form</h2>
+
+  <p>Ce sont les formulaires qui utilisent ngModel.</p>
+  <p>On peut utiliser ngModel dans un input ( select, textarea,...), seul ou à l'intérieur d'un form.</p>
+  <p>Si on l'utilise dans un form, les inputs doivent avoir un attribut "name".</p>
+
+
+  <form (ngSubmit)="submitUser()">
+    <div>
+      <label>Username <input [(ngModel)]="user.username" name="username"></label>
+      <small *ngIf="usernameHasError" [ngStyle]="{color: 'red'}">
+        Veuillez entrer un nom
+      </small>
+    </div>
+    <div>
+      <label>Password <input [(ngModel)]="user.password" name="password"></label>
+    </div>
+    <p>
+      <button type="submit">Connexion</button>
+    </p>
+  </form>
+</section>
+
+<section>
+  <h2>Reactive Form</h2>
+
+  <h3>Form Control</h3>
+  <ul>
+    <li>Invalid : l'un des validators n'est pas respecté</li>
+    <li>Touched : le champs à déjà perdu le focus</li>
+    <li>Untouched: le champs n'a jamais perdu le focus</li>
+    <li>Dirty: le champs à déjà reçu une interaction</li>
+    <li>Pristine: le champs n'a jamais reçu d'interaction</li>
+  </ul>
+
+  <form (ngSubmit)="saveBook()">
+    <div>
+      <label>Book : <input [formControl]="book_control"></label>
+      <p *ngIf="book_control.invalid && book_control.touched" [ngStyle]="{color: 'red'}">
+        <span *ngIf="book_control.hasError('required')">Champs obligatoire ! </span>
+        <span *ngIf="book_control.hasError('minlength')">Trop court ! </span>
+        <span *ngIf="book_control.hasError('pattern')">Caractère interdit !</span>
+      </p>
+      <small [ngStyle]="{color: 'green'}" *ngIf="book_control.touched && book_control.valid">OK !</small>
+    </div>
+    <p>
+      <button>Save</button>
+    </p>
+  </form>
+
+
+
+  <h3>Form Group</h3>
+
+  <p>Un form group, c'est une représentation d'un formulaire, sous forme d'objet.</p>
+  <p>La forme du formulaire, et des valeurs récupérées peuvent s'adapter à des objets complexes.</p>
+
+  <form [formGroup]="formation_form" (ngSubmit)="saveFormation()">
+
+    <div>
+      <label>Titre <input formControlName="title"></label>
+      <p *ngIf="titleError">{{titleError}}</p>
+    </div>
+    <div>
+      <label>Début <input type="date" formControlName="start"></label>
+      <p *ngIf="start.invalid && start.touched">Veuillez entrer une date de début</p>
+    </div>
+    <div>
+      <label>Durée ( jours ) <input type="number" formControlName="duration"></label>
+      <p *ngIf="duration.invalid && duration.touched">Veuillez entrer une durée entre 1 et 5 jours.</p>
+    </div>
+    <fieldset formGroupName="trainer">
+      <legend>Formateur⋅trice</legend>
+      <div>
+        <label>Prénom <input formControlName="firstname"></label>
+      </div>
+      <div>
+        <label>Nom <input formControlName="lastname"></label>
+      </div>
+    </fieldset>
+    <fieldset formArrayName="modules">
+      <legend>Modules</legend>
+      <div *ngFor="let control of modules.controls; index as i">
+        <label>Module {{i + 1}} <input [formControlName]="i"></label>
+      </div>
+      <div>
+        <button type="button" (click)="addModule()">Add</button>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Catégories</legend>
+
+      <div *ngFor="let cat of categories_checkboxes">
+        <label><input type="checkbox" (change)="toggleCategory($event)" [value]="cat.value"/> {{cat.label}}</label>
+      </div>
+
+    </fieldset>
+    <p>
+      <button [disabled]="formation_form.invalid">Sauvegarder</button>
+    </p>
+  </form>
+
+
+
+
+
+</section>
