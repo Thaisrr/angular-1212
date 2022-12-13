@@ -14,6 +14,9 @@ import { TwoWayBindingComponent } from './pages/two-way-binding/two-way-binding.
 import { CounterComponent } from './components/counter/counter.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormulairesComponent } from './pages/formulaires/formulaires.component';
+import { PipesComponent } from './pages/pipes/pipes.component';
+import { RainbowPipe } from './utils/pipes/rainbow.pipe';
+import { OrderPipe } from './utils/pipes/order.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { FormulairesComponent } from './pages/formulaires/formulaires.component'
     ProductCardComponent,
     TwoWayBindingComponent,
     CounterComponent,
-    FormulairesComponent
+    FormulairesComponent,
+    PipesComponent,
+    RainbowPipe,
+    OrderPipe
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,91 @@
+<h1>Les Pipes</h1>
+
+<section>
+  <h2>Présentation</h2>
+
+  <p>Les pipes sont des fonctions qui sont utilisées dans les expressions de template.</p>
+  <p>Elles acceptent une valeur en entrée, et retourne une valeur transformée.</p>
+  <p>Il existe des pipes natifs de Angular, et on peut créer ses propres pipes.</p>
+</section>
+
+<section>
+  <h2>Texte</h2>
+
+  <ul>
+    <li>Message : {{message}}</li>
+    <li>Minuscules : {{message | lowercase}}</li>
+    <li>Majuscule : {{message | uppercase}}</li>
+    <li>Title Case : {{message | titlecase}}</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Numbers</h2>
+
+  <p>Prend en paramétre une string, qui décrit ce à quoi doit ressembler l'affichage: </p>
+  <p>[ Nombre minimal de chiffres avant la virgule] . [nb mini de chiffres après la virgule] - [nb max de chiffres après la virgule]</p>
+
+  <ul>
+    <li>Pi : {{PI}}</li>
+    <li>Pi : {{ PI | number}}</li>
+    <li>Pi : {{ PI | number : '1.0-2' }}</li>
+    <li>Pi : {{ PI | number : '2.2-2' }}</li>
+    <li>4.12345 : {{ 4.12345 | number : '2.2-2' }}</li>
+    <li>4 : {{ 4 | number : '2.2-2' }}</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Dates</h2>
+
+  <ul>
+    <li>Today : {{today}}</li>
+    <li>Short : {{today | date: 'short'}}</li>
+    <li>Medium : {{today | date: 'medium'}}</li>
+    <li>Long : {{today | date: 'long'}}</li>
+    <li>Full : {{today | date: 'full'}}</li>
+
+    <li>Numéro dans le mois : {{ today | date: 'd'}}</li>
+    <li>Numéro dans le semaine : {{ today | date: 'c'}}</li>
+    <li>Abbr du jour : {{ today | date: 'ccc'}}</li>
+    <li>Jour complet : {{ today | date: 'cccc'}}</li>
+
+    <li>Numéro de mois : {{today | date: 'M'}}</li>
+    <li>Numéro de mois ( long) : {{today | date: 'MM'}}</li>
+    <li>Abbr mois: {{today | date: 'MMM'}}</li>
+    <li>Mois complet : {{today | date: 'MMMM'}}</li>
+
+    <li>{{today | date: 'cccc, d, MMMM yyyy'}}</li>
+    <li>{{today | date: 'HH:mm'}}</li>
+
+  </ul>
+
+  <p><a href="https://angular.io/api/common/DatePipe">Plus d'infos dans la doc</a> </p>
+</section>
+
+<section>
+  <h2>Pipes personnalisés</h2>
+
+  <p>Rainbow : {{ 'Coucou' | rainbow }}</p>
+  <p>{{message | titlecase | rainbow | rainbow}}</p>
+
+  <h3>Fruits</h3>
+
+  <ul>
+    <li *ngFor="let f of fruits | order : 'asc' ">{{f}}</li>
+  </ul>
+
+  <p>
+    <button (click)="direction = 'default'">Normal</button>
+    <button (click)="direction = 'asc'">Asc</button>
+    <button (click)="direction = 'desc'">Desc</button>
+  </p>
+
+  <ul>
+    <li *ngFor="let f of fruits | order : direction">{{f}}</li>
+  </ul>
+
+
+
+</section>
+

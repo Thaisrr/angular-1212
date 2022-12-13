@@ -115,7 +115,6 @@ export class FormulairesComponent {
     }
   }
 
-
   saveFormation() {
     if(this.formation_form.valid) {
       const formation: Formation = this.formation_form.value as Formation;

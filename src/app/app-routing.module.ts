@@ -5,6 +5,7 @@ import {DirectivesComponent} from "./pages/directives/directives.component";
 import {CommunicationComponent} from "./pages/communication/communication.component";
 import {TwoWayBindingComponent} from "./pages/two-way-binding/two-way-binding.component";
 import {FormulairesComponent} from "./pages/formulaires/formulaires.component";
+import {PipesComponent} from "./pages/pipes/pipes.component";
 
 
 const routes: Routes = [
@@ -12,7 +13,8 @@ const routes: Routes = [
   {path: 'directives', component: DirectivesComponent},
   {path: 'com', component: CommunicationComponent},
   {path: '2way-binding', component: TwoWayBindingComponent},
-  {path: 'forms', component: FormulairesComponent}
+  {path: 'forms', component: FormulairesComponent},
+  {path: 'pipes', component: PipesComponent},
 ];
 
 @NgModule({
