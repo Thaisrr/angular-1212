@@ -20,8 +20,13 @@ export class CommunicationComponent {
     {id: 3, name: 'Maroille', price: 8}
   ]
 
-  handleClick() {
-    console.log('Clicked !');
+  handleClick(e: Event) {
+    console.log('Clicked !', e);
+  }
+
+  reload(message : string) {
+    console.log('Rechargement des données...');
+    console.log(message);
   }
 
 }

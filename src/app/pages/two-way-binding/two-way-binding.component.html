@@ -1,0 +1,70 @@
+<h1>Two Way Binding</h1>
+<p>Binding Bidirectionnel</p>
+
+<section>
+  <h2>Présentation</h2>
+
+  <p>Le Data Binding : c'st passer des informations / valeur de la partie logique ( ici, .ts ), vers le html.</p>
+  <p>Le two way binding, c'est le fait de récupérer des informations du template vers le typescript.</p>
+  <p>On parle de two way binding lorsqu'on utilise une syntaxe raccourcie.</p>
+  <p>Logique -> template : []</p>
+  <p>Template -> Logique : ()</p>
+  <p>Syntaxe banana in a box : [()]</p>
+
+</section>
+
+<section>
+  <h2>Avec les événéments personnalisés : </h2>
+  <p>Quand faire du two way binding ? </p>
+  <p>-> Si un composant enfant récupère un input, et lance un événement
+  avec une nouvelle valeur, servant à modifier l'input.
+  </p>
+  <p>-> Au lieu de capter l'événement dans le composant parent, et d'appliquer la modification manuellement,
+  on peut faire du two way binding.</p>
+  <p>Attention : le nom de l'event_emitter doit suivre la convention suivante : </p>
+  <ul>
+    <li>En camelCase</li>
+    <li>Commence par le nom de la props</li>
+    <li>Fini par "Change"</li>
+    <li>Emet une valeur compatible avec la donnée à modifier.</li>
+  </ul>
+
+  <h3>Counter [parent]: {{count}}</h3>
+  <p>
+    <button (click)="increment()">++</button>
+  </p>
+
+  <app-counter [value]="count" (valueChange)="update($event)"></app-counter>
+
+  <hr>
+  <h3>Counter 2 [parent] {{count2}}</h3>
+  <app-counter [(value)]="count2"></app-counter>
+</section>
+
+
+<section>
+  <h2>NgModel</h2>
+
+  <p>NgModel est une directive qui se met sur les champs de formulaire.</p>
+  <p>Permet de créer des formulaire "orientés template"</p>
+
+  <h3>Syntaxe Javascript ( à la sauce Angular )</h3>
+  <input [value]="name" (input)="updateName($event)"/>
+  <small [ngStyle]="{color: 'red'}" *ngIf="!name">Veuillez entrer un nom</small>
+  <p>Nom : {{name}}</p>
+
+
+  <h3>Syntaxe Angular</h3>
+
+  <input [ngModel]="name2" (ngModelChange)="updateName2($event)"/>
+  <small [ngStyle]="{color: 'red'}" *ngIf="!name2">Veuillez entrer un nom</small>
+  <p>Nom : {{name2}}</p>
+
+  <h3>Two Way Binding</h3>
+
+  <input [(ngModel)]="name3"/>
+  <small [ngStyle]="{color: 'red'}" *ngIf="!name3">Veuillez entrer un nom</small>
+  <p>Nom : {{name3}}</p>
+</section>
+
+ngModelChange

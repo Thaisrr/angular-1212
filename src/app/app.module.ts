@@ -10,6 +10,9 @@ import { CommunicationComponent } from './pages/communication/communication.comp
 import { ButtonComponent } from './components/button/button.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { TwoWayBindingComponent } from './pages/two-way-binding/two-way-binding.component';
+import { CounterComponent } from './components/counter/counter.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -20,11 +23,14 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     CommunicationComponent,
     ButtonComponent,
     DialogComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    TwoWayBindingComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

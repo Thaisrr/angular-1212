@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Product} from "../../utils/models/Product";
 
 @Component({
@@ -8,5 +8,12 @@ import {Product} from "../../utils/models/Product";
 })
 export class ProductCardComponent {
   @Input() product!: Product;
+
+  @Output() reload_event = new EventEmitter<string>();
+
+  handleAction() {
+    // Après les actions faites par l'enfant
+    this.reload_event.emit(`Valeur envoyée par l'Event Emitter`);
+  }
 
 }

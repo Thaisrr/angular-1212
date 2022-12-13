@@ -10,8 +10,8 @@
   <p>Les attributs ( événements, classes, ect... ) sont également projeté vers la première balise englobante du composant
   enfant.</p>
 
-  <p>Bouton classique : <button (click)="handleClick()">Click Click</button></p>
-  <p>Cliquez ici : <app-button class="coucou" (click)="handleClick()">Say Hello</app-button></p>
+  <p>Bouton classique : <button (click)="handleClick($event)">Click Click</button></p>
+  <p>Cliquez ici : <app-button class="coucou" (click)="handleClick($event)">Say Hello</app-button></p>
   <p>Ne cliquez pas ici : <app-button>Boom</app-button></p>
   <p>Du HTML : <app-button><i>En italique</i></app-button></p>
 
@@ -50,9 +50,8 @@
 
 
   <div class="grid">
-    <app-product-card [product]="one_product"></app-product-card>
-    <app-product-card *ngFor="let p of products" [product]="p"></app-product-card>
-
+    <app-product-card [product]="one_product" (reload_event)="reload($event)"></app-product-card>
+    <app-product-card *ngFor="let p of products" [product]="p" (reload_event)="reload($event)"></app-product-card>
   </div>
 </section>
 
