@@ -1,0 +1,46 @@
+<h1>Les Services</h1>
+
+<section>
+  <h2>Présentation</h2>
+
+  <h3>L'injection de dépendances</h3>
+  <p>Les services sont des classes créées avec Angular. Ils possèdent le décorateur @Injectable()</p>
+  <p>Ce décorateur permet d'indiquer à Angular qu'il pourra injecter une instance de ce service dans d'autres composants,
+  des services, des guards, des pipes...
+  </p>
+  <p>Les éléments Injectables sont instancié pour chaque élément dans lesquels ils sont fournis ( providers ).</p>
+  <p>Par défaut, ils sont fournis pour l'application complète ( <code>providedIn: 'root'</code> ). Ils ne sont donc
+  instanciés qu'une fois pour toute l'application.
+  </p>
+  <p>
+    On peut les fournir dans d'autres modules, ou dans un composant spécifique.
+  </p>
+  <p>
+    Si on fourni un service au niveau d'un composant, ce composant utilisera sa propre instance du service, même si il existe déjà une instance globale.
+  </p>
+
+  <h3>Utilisation</h3>
+  <p>
+    Pour utiliser un service, il faut l'injecter dans le constructor de la classe qui en a besoin.
+  </p>
+  <p><code>constructor(private monService: MonService) </code></p>
+
+  <p><b>Attention : </b> Si un service A utilise un service B, le service B ne peut pas utiliser le service A.</p>
+  <p>Ça créerait une dépendance circulaire, et donc une erreur de compilation.</p>
+</section>
+
+<section>
+  <h2>Data Service</h2>
+
+  <ul *ngIf="datas">
+    <li *ngFor="let d of datas">{{d.name}}  <button (click)="deleteOne(d)">X</button></li>
+  </ul>
+
+  <p>
+    <label>New Data: <input [(ngModel)]="data_name"/></label>
+    <button (click)="saveData()">Save</button>
+  </p>
+
+
+
+</section>

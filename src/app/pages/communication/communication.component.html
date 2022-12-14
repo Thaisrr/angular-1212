@@ -55,4 +55,12 @@
   </div>
 </section>
 
+<section>
+  <h2>Data Service</h2>
+
+  <ul *ngIf="datas">
+    <li *ngFor="let d of datas">{{d.name}}</li>
+  </ul>
+</section>
+
 

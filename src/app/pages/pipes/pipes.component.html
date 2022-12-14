@@ -85,6 +85,39 @@
     <li *ngFor="let f of fruits | order : direction">{{f}}</li>
   </ul>
 
+</section>
+
+
+<section>
+  <h2>Pourquoi les pipes ?</h2>
+
+  <p>
+    <label>Message : <input [(ngModel)]="message"></label>
+  </p>
+
+  <p>
+    <label>Nom : <input [(ngModel)]="name"></label>
+  </p>
+  <p>{{name}}</p>
+
+  <p>{{count}}</p>
+
+  <p>
+    <label>Fruit : <input [(ngModel)]="fruit"></label>
+    <button (click)="addFruit()">Add</button>
+  </p>
+
+  <ul>
+    <li *ngFor="let f of fruits">{{f}}</li>
+  </ul>
+
+  <h3>Les méthodes de composant</h3>
+  <p>Les méthodes de composant se rejouent à chaque modification du DOM.</p>
+  <p>{{getMessage()}}</p>
+
+  <h3>Les pipes Purs</h3>
+  <p>Les pipes purs ne se rejoue que si les valeurs surveillées ( value ou arguments ) sont modifiées ( réassignées.)</p>
+  <p>On peut les obliger à se rejouer tout le temps en les rendant impurs, mais ce n'est pas recommendé.</p>
 
 
 </section>

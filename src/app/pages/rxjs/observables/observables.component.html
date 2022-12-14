@@ -1,0 +1,18 @@
+<section>
+  <h2>Présentation</h2>
+
+  <p>Un Observable est un flux auquel il faut s'abonner.</p>
+  <p>Il peut renvoyer 3 types de données : </p>
+  <ul>
+    <li>Next : une valeur. On peut recevoir plusieurs next, tant qu'on est abonné à l'observable.</li>
+    <li>Error : retourne un objet Erreur. Une erreur marque la fin de l'Observable. Les abonnements sont tous coupés.</li>
+    <li>Complete : ne retourne rien, s'exécute lorsque l'Observable se termine "naturellement", de lui même.</li>
+  </ul>
+
+  <p>Pour accéder à ces valeurs, et pour lancer l'observable, il faut y souscrire. ( <b>subscribe()</b> )</p>
+
+  <p><b>Attention : les observables non terminé doivent être résiliés lorsqu'on quitte un composant.</b></p>
+  <p>En ne le faisant, on s'expose à des fuites de mémoire : on cumule les souscriptions au même observable, et Angular ne
+  peut plus gérer les instances de composant efficacement.
+  </p>
+</section>

@@ -6,6 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class RainbowPipe implements PipeTransform {
 
   transform(value: string): string {
+    console.log('in rainbow pipe - transform')
     return `🌈 ${value} 🌈`;
   }
 

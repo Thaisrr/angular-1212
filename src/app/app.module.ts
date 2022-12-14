@@ -12,11 +12,17 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { TwoWayBindingComponent } from './pages/two-way-binding/two-way-binding.component';
 import { CounterComponent } from './components/counter/counter.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { FormulairesComponent } from './pages/formulaires/formulaires.component';
 import { PipesComponent } from './pages/pipes/pipes.component';
 import { RainbowPipe } from './utils/pipes/rainbow.pipe';
 import { OrderPipe } from './utils/pipes/order.pipe';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { AboutServicesComponent } from './pages/about-services/about-services.component';
+import { RxjsComponent } from './pages/rxjs/rxjs.component';
+import { ObservablesComponent } from './pages/rxjs/observables/observables.component';
+import { HttpsComponent } from './pages/rxjs/https/https.component';
+import {HttpClientModule} from "@angular/common/http";
+
 
 @NgModule({
   declarations: [
@@ -33,13 +39,18 @@ import { OrderPipe } from './utils/pipes/order.pipe';
     FormulairesComponent,
     PipesComponent,
     RainbowPipe,
-    OrderPipe
+    OrderPipe,
+    AboutServicesComponent,
+    RxjsComponent,
+    ObservablesComponent,
+    HttpsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, // pour ngModel
     ReactiveFormsModule, // Formulaires Réactifs
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
