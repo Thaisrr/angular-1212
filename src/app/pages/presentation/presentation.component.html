@@ -24,6 +24,37 @@
   <p>On peut aussi voir les composants comme des balises html personnalisées.</p>
 
   <p><b>Le composant App est toujours affiché.</b> Il est injecté dans le fichier index.html, et gère le reste de l'affichage.</p>
+
+  <figure class="img-container">
+    <img src="assets/spa.png" alt="">
+    <figcaption>Imbrication des composants dans Angular</figcaption>
+  </figure>
+
+
+  <p>Angular contient : </p>
+  <ul>
+    <li><b>index.html</b> -> c'est l'unique "vrai" fichier html envoyé par le serveur. C'est cette page qui est affichée à tout moment.</li>
+    <li><b>main.ts</b>  -> C'est la porte d'entrée de l'application. C'est ici qu'est lancé Angular.</li>
+    <li><b>app.module.ts</b>  -> C'est le module principal de l'application, chargé au démarrage. </li>
+    <li><b>app.component</b> -> C'est le composant racine de l'application. Il est toujours visible.</li>
+    <li>D'autres composants, des pipes, des directives, ... déclarés dans les différents modules de l'application.</li>
+  </ul>
+
+  <figure class="img-container">
+    <img src="assets/chargement.png" alt=""/>
+    <figcaption>Chargement de l'application</figcaption>
+  </figure>
+
+  <p>Pour lancer l'application, il faut lancer la commande <code>ng serve</code>.</p>
+  <p>Elle compile l'application, créé un serveur sur un port ( 4200 par défaut ), et recompile à chaque sauvegarde du projet.</p>
+
+  <p>La commande <code>ng build</code> permet de compiler l'application, et créer un bundle dans un dossier .dist</p>
+  <p>C'est ce bundle qui est mis en production.</p>
+
+  <figure>
+    <img src="assets/build.png" alt="">
+    <figcaption>Compilation de l'application</figcaption>
+  </figure>
 </section>
 
 <section>

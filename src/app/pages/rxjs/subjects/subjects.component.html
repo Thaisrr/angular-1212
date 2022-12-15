@@ -1,0 +1,38 @@
+<section>
+  <h2>Les Subjects</h2>
+
+  <h3>Observable : </h3>
+  <p>Lorsqu'on créé un observable, les valeurs à emettre son à donner dès la création de l'observable.</p>
+  <p>On ne peut plus intervenir après.</p>
+
+
+  <h3>Subject</h3>
+
+  <p>Ce sont des types d'observable.</p>
+  <p>On les créé sans leur fournir de valeur.</p>
+  <p>On s'abonne au sujet.</p>
+  <p>L'abonnement surveillera les valeurs émises après l'abonnement.</p>
+  <p>Un abonnement n'a pas accès aux valeurs émises avant.</p>
+
+
+  <h3>Behaviour Subject</h3>
+  <p>On les créé avec une valeur par défaut.</p>
+  <p>Lorsqu'on y souscription, l'abonnement récupére la dernière valeur précédent la souscription.</p>
+  <p>Continue à surveiller les valeurs jusqu'à la résiliation.</p>
+
+  <h3>Replay Subject</h3>
+  <p>Le replay subject permet d'accéder aux valeurs émises avant l'abonnement.</p>
+  <p>Dans le contructor, le replay peut prendre un nombre, qui correspond au nombre de valeurs passées qu'on souhaite surveiller.</p>
+  <p>Exemple <code>new ReplaySubject(3)</code> éxécutera sa fonction "next" du subscribe pour les 3 valeurs émises avant, si elles existent.</p>
+
+
+</section>
+
+<section>
+  <h2>Mes produits</h2>
+
+  <div class="grid">
+    <p *ngFor="let product of products">{{product}} <br> <button (click)="addToPanier(product)">Panier</button></p>
+  </div>
+
+</section>

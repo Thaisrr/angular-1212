@@ -22,6 +22,7 @@ import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { ObservablesComponent } from './pages/rxjs/observables/observables.component';
 import { HttpsComponent } from './pages/rxjs/https/https.component';
 import {HttpClientModule} from "@angular/common/http";
+import { SubjectsComponent } from './pages/rxjs/subjects/subjects.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import {HttpClientModule} from "@angular/common/http";
     AboutServicesComponent,
     RxjsComponent,
     ObservablesComponent,
-    HttpsComponent
+    HttpsComponent,
+    SubjectsComponent
   ],
   imports: [
     BrowserModule,

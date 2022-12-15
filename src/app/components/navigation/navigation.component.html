@@ -24,5 +24,6 @@
     <li>
       <a routerLink="/rxjs">RxJS</a>
     </li>
+    <li *ngIf="panier$">Panier : {{panier$ | async}} <span *ngIf="show_animation">⭐</span> </li>
   </ul>
 </nav>

@@ -34,7 +34,7 @@
 
 
 body {margin: 0}
-.body {
+body {
   margin: 0;
   font-family: var(--main-font);
   color: var(--dark);
@@ -146,4 +146,11 @@ td {
   padding: 10px 15px;
   border-bottom: solid grey 1px;
   font-family: var(--main-font);
+}
+
+
+figcaption {
+  text-align: center;
+  color: #556d6d;
+
 }

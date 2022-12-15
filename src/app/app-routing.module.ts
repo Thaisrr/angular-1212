@@ -10,6 +10,7 @@ import {AboutServicesComponent} from "./pages/about-services/about-services.comp
 import {RxjsComponent} from "./pages/rxjs/rxjs.component";
 import {ObservablesComponent} from "./pages/rxjs/observables/observables.component";
 import {HttpsComponent} from "./pages/rxjs/https/https.component";
+import {SubjectsComponent} from "./pages/rxjs/subjects/subjects.component";
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'rxjs', component: RxjsComponent, children: [
       {path: '', component: ObservablesComponent},
       {path: 'http', component: HttpsComponent},
+      {path: 'subjects', component: SubjectsComponent},
     ]}
 ];
 

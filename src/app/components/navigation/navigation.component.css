@@ -1,6 +1,9 @@
 nav {
   height: 70px;
   background-color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
 }
 
 ul {
