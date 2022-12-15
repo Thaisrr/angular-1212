@@ -10,3 +10,26 @@
   <p>La souscription se résilie donc automatiquement.</p>
 
 </section>
+
+
+<section>
+  <h2>Users : </h2>
+
+  <ul *ngIf="users; else noUsers">
+    <li *ngFor="let u of users">{{u.name}}</li>
+  </ul>
+  <ng-template #noUsers>
+    <p>Chargement en cours...</p>
+  </ng-template>
+
+</section>
+
+
+<section>
+  <h2>New User</h2>
+
+  <p>
+    <label>Nom : <input [(ngModel)]="username"></label>
+    <button (click)="save()">Save</button>
+  </p>
+</section>
