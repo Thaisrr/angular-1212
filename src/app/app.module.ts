@@ -31,6 +31,9 @@ import {CookieService} from "ngx-cookie-service";
 import {BearerInterceptor} from "./utils/interceptors/bearer.interceptor";
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProxyCorsComponent } from './pages/proxy-cors/proxy-cors.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AlertComponent } from './components/alert/alert.component';
+
 
 
 @NgModule({
@@ -60,6 +63,7 @@ import { ProxyCorsComponent } from './pages/proxy-cors/proxy-cors.component';
     NotAuthorizedComponent,
     NotFoundComponent,
     ProxyCorsComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +71,9 @@ import { ProxyCorsComponent } from './pages/proxy-cors/proxy-cors.component';
     FormsModule, // pour ngModel
     ReactiveFormsModule, // Formulaires Réactifs
     HttpClientModule,
+    BrowserAnimationsModule,
+
+
   ],
   providers: [
     CookieService,

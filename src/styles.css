@@ -41,7 +41,7 @@ body {
   background-color: var(--light);
 }
 
-* { box-sizing: border-box}
+/** { box-sizing: border-box} */
 
 .centered, figure, main {
   width: var(--width);
@@ -154,3 +154,5 @@ figcaption {
   color: #556d6d;
 
 }
+
+html, body { height: 100%; }

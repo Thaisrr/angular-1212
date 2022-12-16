@@ -1,1 +1,9 @@
-<p>proxy-cors works!</p>
+<h1>Alerte</h1>
+
+<section>
+  <p>
+    <button (click)="sendAlert({text: 'Ceci est une alert !', level: 'error'})">Alerte</button>
+    <button (click)="sendAlert({text: 'Ceci est un succés !', level: 'success'})">Success</button>
+    <button (click)="sendAlert({text: 'Ceci est un warning !', level: 'warning'})">Warning</button>
+  </p>
+</section>

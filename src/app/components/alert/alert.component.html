@@ -1,0 +1,7 @@
+<div class="alert-group" *ngIf="alerts$ | async as alerts">
+  <div class="alert" [class]="alert.level" *ngFor="let alert of alerts">
+    <span>{{alert.text}}</span>
+  </div>
+
+</div>
+
