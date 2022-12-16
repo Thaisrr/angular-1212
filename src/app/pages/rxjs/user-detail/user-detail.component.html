@@ -1,0 +1,24 @@
+<h1>Détail de l'Utilisateur⋅trice</h1>
+
+
+<section *ngIf="user$ | async as user; else loading">
+  <h2>{{user.name}}</h2>
+  <p>{{user.email}}</p>
+</section>
+
+<ng-template #loading>
+  <section class="loading" >
+    <h2></h2>
+    <p></p>
+  </section>
+</ng-template>
+
+
+<section>
+  <h2>Autres utilisateurs⋅trices : </h2>
+
+  <ul *ngIf="users$ | async as users">
+    <li *ngFor="let u of users"><a [routerLink]="'/rxjs/details/' + u.id">{{u.name}}</a> </li>
+  </ul>
+
+</section>

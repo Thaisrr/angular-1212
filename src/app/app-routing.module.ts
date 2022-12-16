@@ -11,6 +11,12 @@ import {RxjsComponent} from "./pages/rxjs/rxjs.component";
 import {ObservablesComponent} from "./pages/rxjs/observables/observables.component";
 import {HttpsComponent} from "./pages/rxjs/https/https.component";
 import {SubjectsComponent} from "./pages/rxjs/subjects/subjects.component";
+import {UserDetailComponent} from "./pages/rxjs/user-detail/user-detail.component";
+import {AuthComponent} from "./pages/auth/auth.component";
+import {LoginComponent} from "./pages/auth/login/login.component";
+import {ProfileComponent} from "./pages/auth/profile/profile.component";
+import {LoggedGuard} from "./utils/guards/logged.guard";
+import {NotAuthorizedComponent} from "./pages/not-authorized/not-authorized.component";
 
 
 const routes: Routes = [
@@ -25,7 +31,13 @@ const routes: Routes = [
       {path: '', component: ObservablesComponent},
       {path: 'http', component: HttpsComponent},
       {path: 'subjects', component: SubjectsComponent},
-    ]}
+      {path: 'details/:id', component: UserDetailComponent},
+    ]},
+  {path: 'auth', component: AuthComponent, children: [
+      {path: '', component: LoginComponent},
+      {path: 'profile', component: ProfileComponent, canActivate: [LoggedGuard]}
+    ]},
+  {path: '401', component: NotAuthorizedComponent}
 ];
 
 @NgModule({

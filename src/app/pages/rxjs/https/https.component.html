@@ -21,7 +21,10 @@
   <h2>Users : </h2>
 
   <ul *ngIf="users; else noUsers">
-    <li *ngFor="let u of users">{{u.name}}</li>
+    <li *ngFor="let u of users">
+      {{u.name}}
+      <a [routerLink]="'/rxjs/details/' + u.id">Voir</a>
+    </li>
   </ul>
   <ng-template #noUsers>
     <p>Chargement en cours...</p>

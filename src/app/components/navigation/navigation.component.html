@@ -24,6 +24,17 @@
     <li>
       <a routerLink="/rxjs">RxJS</a>
     </li>
-    <li *ngIf="panier$">Panier : {{panier$ | async}} <span *ngIf="show_animation">⭐</span> </li>
+    <li *ngIf="!(is_logged$ | async); else profile">
+      <a routerLink="/auth">Login</a>
+    </li>
+    <ng-template #profile>
+      <li>
+        <a routerLink="/auth/profile">Profil</a>
+      </li>
+      <li *ngIf="panier$">Panier : {{panier$ | async}} <span *ngIf="show_animation">⭐</span> </li>
+      <li>
+        <button (click)="logout()">Logout</button>
+      </li>
+    </ng-template>
   </ul>
 </nav>

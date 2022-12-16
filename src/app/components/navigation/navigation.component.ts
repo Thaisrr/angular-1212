@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PanierService} from "../../utils/services/panier.service";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
+import {AuthenticationService} from "../../utils/services/authentication.service";
 
 @Component({
   selector: 'app-navigation',
@@ -10,7 +11,8 @@ import {Observable} from "rxjs";
 export class NavigationComponent implements OnInit{
   panier$?: Observable<number>;
   show_animation = false;
-  constructor(private panierService: PanierService) {}
+  is_logged$?: BehaviorSubject<boolean>;
+  constructor(private panierService: PanierService, private authService: AuthenticationService) {}
 
   ngOnInit() {
     this.panierService.length$.subscribe(() => {
@@ -20,7 +22,11 @@ export class NavigationComponent implements OnInit{
 
     this.panier$ = this.panierService.length$;
 
+    this.is_logged$ = this.authService.is_logged$;
+  }
 
+  logout() {
+    this.authService.logout();
   }
 
 

@@ -21,8 +21,15 @@ import { AboutServicesComponent } from './pages/about-services/about-services.co
 import { RxjsComponent } from './pages/rxjs/rxjs.component';
 import { ObservablesComponent } from './pages/rxjs/observables/observables.component';
 import { HttpsComponent } from './pages/rxjs/https/https.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { SubjectsComponent } from './pages/rxjs/subjects/subjects.component';
+import { UserDetailComponent } from './pages/rxjs/user-detail/user-detail.component';
+import { AuthComponent } from './pages/auth/auth.component';
+import { LoginComponent } from './pages/auth/login/login.component';
+import { ProfileComponent } from './pages/auth/profile/profile.component';
+import { NotAuthorizedComponent } from './pages/not-authorized/not-authorized.component';
+import {CookieService} from "ngx-cookie-service";
+import {BearerInterceptor} from "./utils/interceptors/bearer.interceptor";
 
 
 @NgModule({
@@ -45,7 +52,12 @@ import { SubjectsComponent } from './pages/rxjs/subjects/subjects.component';
     RxjsComponent,
     ObservablesComponent,
     HttpsComponent,
-    SubjectsComponent
+    SubjectsComponent,
+    UserDetailComponent,
+    AuthComponent,
+    LoginComponent,
+    ProfileComponent,
+    NotAuthorizedComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +66,10 @@ import { SubjectsComponent } from './pages/rxjs/subjects/subjects.component';
     ReactiveFormsModule, // Formulaires Réactifs
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    CookieService,
+    {provide: HTTP_INTERCEPTORS, useClass: BearerInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
