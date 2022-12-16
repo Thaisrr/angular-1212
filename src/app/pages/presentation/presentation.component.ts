@@ -4,7 +4,7 @@ import {Image} from "../../utils/types/Images";
 @Component({
   selector: 'app-presentation',
   templateUrl: './presentation.component.html',
-  styleUrls: ['./presentation.component.css']
+  styleUrls: ['./presentation.component.css'],
 })
 export class PresentationComponent {
 

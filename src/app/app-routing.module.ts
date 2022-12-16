@@ -14,9 +14,11 @@ import {SubjectsComponent} from "./pages/rxjs/subjects/subjects.component";
 import {UserDetailComponent} from "./pages/rxjs/user-detail/user-detail.component";
 import {AuthComponent} from "./pages/auth/auth.component";
 import {LoginComponent} from "./pages/auth/login/login.component";
-import {ProfileComponent} from "./pages/auth/profile/profile.component";
-import {LoggedGuard} from "./utils/guards/logged.guard";
 import {NotAuthorizedComponent} from "./pages/not-authorized/not-authorized.component";
+import {NotFoundComponent} from "./pages/not-found/not-found.component";
+import {ProxyCorsComponent} from "./pages/proxy-cors/proxy-cors.component";
+
+
 
 
 const routes: Routes = [
@@ -35,13 +37,19 @@ const routes: Routes = [
     ]},
   {path: 'auth', component: AuthComponent, children: [
       {path: '', component: LoginComponent},
-      {path: 'profile', component: ProfileComponent, canActivate: [LoggedGuard]}
+      {path: 'user', loadChildren: () => import('./user-routes').then(r => r.user_routes)}
     ]},
-  {path: '401', component: NotAuthorizedComponent}
+  {path: '401', component: NotAuthorizedComponent},
+  {path: 'accueil', redirectTo: '/presentation'},
+  {path: 'acceuil', redirectTo: '/presentation'},
+  {path: '', redirectTo: '/presentation', pathMatch: "full"},
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  {path: 'cors', component: ProxyCorsComponent},
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

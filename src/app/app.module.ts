@@ -26,10 +26,11 @@ import { SubjectsComponent } from './pages/rxjs/subjects/subjects.component';
 import { UserDetailComponent } from './pages/rxjs/user-detail/user-detail.component';
 import { AuthComponent } from './pages/auth/auth.component';
 import { LoginComponent } from './pages/auth/login/login.component';
-import { ProfileComponent } from './pages/auth/profile/profile.component';
 import { NotAuthorizedComponent } from './pages/not-authorized/not-authorized.component';
 import {CookieService} from "ngx-cookie-service";
 import {BearerInterceptor} from "./utils/interceptors/bearer.interceptor";
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ProxyCorsComponent } from './pages/proxy-cors/proxy-cors.component';
 
 
 @NgModule({
@@ -56,8 +57,9 @@ import {BearerInterceptor} from "./utils/interceptors/bearer.interceptor";
     UserDetailComponent,
     AuthComponent,
     LoginComponent,
-    ProfileComponent,
-    NotAuthorizedComponent
+    NotAuthorizedComponent,
+    NotFoundComponent,
+    ProxyCorsComponent,
   ],
   imports: [
     BrowserModule,
